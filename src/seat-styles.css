@@ -1,0 +1,47 @@
+.centered-flex-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.business-class-row {
+  margin-bottom: 1rem;
+}
+
+.economy-class-row {
+  margin-bottom: 0.6rem;
+}
+
+.seat-map__wrapper {
+  position: relative;
+  width: 400px;
+  height: 1434px;
+  padding: 1rem;
+  border: 1px dashed grey;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.width--160 {
+  width: 160px;
+}
+
+.margin--0--auto {
+  margin: 0 auto;
+}
+
+.airplane-svg__wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.seat-map__container {
+  margin-top: 170px;
+}
+
+.cabin-label {
+  font-size: 0.6rem;
+}

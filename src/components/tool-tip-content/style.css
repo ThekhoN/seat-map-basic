@@ -1,0 +1,11 @@
+.tool-tip-content {
+  text-align: left;
+}
+
+.tool-tip-content > .seat {
+  font-weight: bold;
+}
+
+.tool-tip-content .summary {
+  font-size: 12px;
+}

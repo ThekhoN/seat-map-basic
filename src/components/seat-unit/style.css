@@ -1,0 +1,28 @@
+.seat-unit {
+  border: 0;
+  /* display: inline-flex; */
+  position: relative;
+  cursor: pointer;
+}
+
+.seat-unit:hover {
+  cursor: pointer;
+}
+
+.seat-unit:hover svg.seat-icon {
+  fill: #f2f2f2;
+  stroke: #000000;
+}
+
+.seat-unit.is-selected svg.seat-icon {
+  fill: #1554b0;
+  stroke: #ffffff;
+}
+
+.seat-unit__tool-tip {
+  border: 1px solid #cccccc;
+}
+
+.seat-unit__tool-tip.__react_component_tooltip:after {
+  display: none;
+}
