@@ -2,10 +2,17 @@ import React from "react";
 import BusinessSeatUnitSVG from "../seat-unit-svg";
 import EconomySeatUnitSvg from "../seat-unit-small-svg";
 import "./style.css";
-import ReactTooltip from "react-tooltip";
-// import HoverIntent from "react-hoverintent";
-import ToolTipContent, { props as seatUnitProps } from "../tool-tip-content";
-import uniqid from "uniqid";
+import Tooltip from "react-tooltip-lite";
+import ToolTipContent from "../tool-tip-content";
+import {
+  getSeatOccupationClassName,
+  deriveSeatStyle,
+  getOccupation,
+  getLocation,
+  getFacilites,
+  getCurrencyCode,
+  getTotalAmount
+} from "./utils";
 
 class SeatUnit extends React.Component {
   state = {
@@ -21,57 +28,63 @@ class SeatUnit extends React.Component {
       });
     }
   };
-  componentDidMount() {
-    this.setState({
-      id: uniqid()
-    });
-  }
-  renderToolTipContent = () => {
-    if (this.state.disbleToolTop) {
-      return null;
-    }
-    return (
-      <ReactTooltip
-        className="seat-unit__tool-tip"
-        id={`example-${this.state.id}`}
-        place="bottom"
-        type="light"
-        effect="solid"
-      >
-        <ToolTipContent {...seatUnitProps} />
-      </ReactTooltip>
-    );
-  };
   renderSeatUnit() {
-    if (this.props.isBusiness) {
+    if (this.props.cabinClass === "Business") {
       return <BusinessSeatUnitSVG />;
     } else {
       return <EconomySeatUnitSvg />;
     }
   }
   render() {
-    const { top, left } = this.props;
-    let deriveWidth = this.props.isBusiness ? "22px" : "17px";
+    const { top, left, seatDetails, columns } = this.props;
+    let deriveWidth = this.props.cabinClass === "Business" ? "22px" : "17px";
+
+    const seatNumber = seatDetails.Number[0];
+
+    const derivedSeatStyle = deriveSeatStyle(seatNumber, columns);
 
     const style = {
       top: top ? top + "px" : 0 + "px",
       left: left ? left + "px" : 0 + "px",
       width: deriveWidth,
-      height: "22px"
+      height: "22px",
+      ...derivedSeatStyle
     };
     let deriveClassName = this.state.isSelected ? "is-selected" : "";
+    /********************************************/
+    // seat unit details
+    /********************************************/
+    const occupation = getOccupation(seatDetails);
+    const seatOccupationClasName = getSeatOccupationClassName(occupation);
+    const location = getLocation(seatDetails);
+    const facilities = getFacilites(seatDetails);
+    const totalAmount = getTotalAmount(seatDetails);
+    const currencyCode = getCurrencyCode(seatDetails);
+    const seatDetailsForToolTip = {
+      seat: `${this.props.rowNumber} ${seatNumber}`,
+      seatClass: this.props.cabinClass,
+      occupation,
+      location,
+      facilities,
+      totalAmount,
+      currencyCode
+    };
+
     return (
       <React.Fragment>
-        <div
-          className={`seat-unit ${deriveClassName}`}
-          style={style}
-          onClick={this.onClick}
-          data-for={`example-${this.state.id}`}
-          data-tip
-        >
-          {this.renderSeatUnit()}
-        </div>
-        {this.renderToolTipContent()}
+        <Tooltip content={<ToolTipContent {...seatDetailsForToolTip} />}>
+          <div
+            className={`seat-unit ${deriveClassName} ${seatOccupationClasName}`}
+            style={style}
+            onClick={() => {
+              if (occupation === "SeatIsFree") {
+                this.onClick();
+              }
+            }}
+          >
+            {this.renderSeatUnit()}
+          </div>
+        </Tooltip>
       </React.Fragment>
     );
   }

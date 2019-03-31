@@ -4,13 +4,11 @@
   "private": true,
   "dependencies": {
     "@babel/types": "^7.3.4",
+    "lodash.get": "^4.4.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-hover-observer": "^2.1.1",
-    "react-hoverintent": "^0.0.10",
     "react-scripts": "2.1.8",
-    "react-tooltip": "^3.10.0",
-    "uniqid": "^5.0.3"
+    "react-tooltip-lite": "^1.9.1"
   },
   "scripts": {
     "start": "react-scripts start",

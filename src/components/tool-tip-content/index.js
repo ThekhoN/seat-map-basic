@@ -1,23 +1,33 @@
 import React from "react";
 import "./style.css";
 
-export const props = {
-  seat: "16 A",
-  seatClass: "Business",
-  type: "Angle Lie Flat & Bulkhead",
-  summary: "Standard Business Class Seat",
-  features: {
-    "On-Demand TV": true,
-    "AC Power": true
-  }
-};
-
-const ToolTipContent = ({ seat, seatClass, type, summary, features }) => (
+const ToolTipContent = ({
+  seat,
+  seatClass,
+  occupation,
+  facilities,
+  location,
+  totalAmount,
+  currencyCode
+}) => (
   <div className="tool-tip-content">
     <div className="seat">{seat}</div>
     <div className="seatClass">{seatClass}</div>
-    <div className="summary">{summary}</div>
+    <div>Occupation: {occupation}</div>
+    <div>Location: {location}</div>
+    <div>Facilities: {facilities.join("")}</div>
+    <div>Price: {totalAmount + " " + currencyCode}</div>
   </div>
 );
+
+ToolTipContent.defaultProps = {
+  seat: "",
+  seatClass: "",
+  occupation: "",
+  location: "",
+  facilities: [],
+  totalAmount: "",
+  currencyCode: ""
+};
 
 export default ToolTipContent;

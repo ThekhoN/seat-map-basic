@@ -45,5 +45,5 @@ SeatUnitSvg.defaultProps = {
   height: "22px",
   strokeColor: "#000000",
   fillColor: "#ffffff",
-  handleOnClick: () => console.log("clicked!")
+  handleOnClick: () => {}
 };

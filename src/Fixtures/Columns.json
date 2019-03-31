@@ -1,0 +1,82 @@
+[
+  {
+    "Column": [
+      "A"
+    ],
+    "Characteristics": [
+      "Window"
+    ]
+  },
+  {
+    "Column": [
+      "B"
+    ],
+    "Characteristics": [
+      "CenterSeat"
+    ]
+  },
+  {
+    "Column": [
+      "C"
+    ],
+    "Characteristics": [
+      "Aisle"
+    ]
+  },
+  {
+    "Column": [
+      "D"
+    ],
+    "Characteristics": [
+      "Aisle"
+    ]
+  },
+  {
+    "Column": [
+      "E"
+    ],
+    "Characteristics": [
+      "CenterSeat"
+    ]
+  },
+  {
+    "Column": [
+      "G"
+    ],
+    "Characteristics": [
+      "CenterSeat"
+    ]
+  },
+  {
+    "Column": [
+      "H"
+    ],
+    "Characteristics": [
+      "Aisle"
+    ]
+  },
+  {
+    "Column": [
+      "J"
+    ],
+    "Characteristics": [
+      "Aisle"
+    ]
+  },
+  {
+    "Column": [
+      "K"
+    ],
+    "Characteristics": [
+      "CenterSeat"
+    ]
+  },
+  {
+    "Column": [
+      "L"
+    ],
+    "Characteristics": [
+      "Window"
+    ]
+  }
+]

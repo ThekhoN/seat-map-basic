@@ -26,3 +26,22 @@
 .seat-unit__tool-tip.__react_component_tooltip:after {
   display: none;
 }
+
+.seat-is-occupied svg {
+  fill: #6088ba;
+  stroke: #ffffff;
+}
+
+.seat-unit.seat-is-occupied:hover svg {
+  fill: #6088ba;
+  stroke: #ffffff;
+}
+
+.react-tooltip-lite {
+  background: #333;
+  color: white;
+}
+
+.react-tooltip-lite-arrow {
+  border-color: #333;
+}
