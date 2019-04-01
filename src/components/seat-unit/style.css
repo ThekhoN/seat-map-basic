@@ -28,12 +28,12 @@
 }
 
 .seat-is-occupied svg {
-  fill: #6088ba;
+  fill: #889cb5;
   stroke: #ffffff;
 }
 
 .seat-unit.seat-is-occupied:hover svg {
-  fill: #6088ba;
+  fill: #889cb5;
   stroke: #ffffff;
 }
 
@@ -44,4 +44,14 @@
 
 .react-tooltip-lite-arrow {
   border-color: #333;
+}
+
+.seat-is-unavailable svg {
+  fill: #8c8c8c;
+  stroke: #ffffff;
+}
+
+.seat-unit.seat-is-unavailable:hover svg {
+  fill: #8c8c8c;
+  stroke: #ffffff;
 }

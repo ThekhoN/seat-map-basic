@@ -16,3 +16,12 @@
   text-align: center;
   padding: 0.6rem;
 }
+
+.seat-map-horizontal-container {
+  transform: rotate(90deg) translateX(-216px);
+}
+
+.seat-map-height-container {
+  height: 200px;
+  overflow: hidden;
+}

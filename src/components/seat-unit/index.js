@@ -21,11 +21,24 @@ class SeatUnit extends React.Component {
     isSelected: false,
     id: ""
   };
-  onClick = () => {
+  onClick = seat => {
     if (!this.state.disableSelection) {
-      this.setState({
-        isSelected: !this.state.isSelected
-      });
+      this.setState(
+        {
+          isSelected: !this.state.isSelected
+        },
+        () => {
+          if (this.state.isSelected) {
+            this.props.updateSeatSelection(seat, "ADD");
+            const message = `seat ${seat} was selected for passenger id: ${
+              this.props.selectedPassenger.id
+            } and name: ${this.props.selectedPassenger.name}`;
+            console.log(message);
+          } else {
+            this.props.updateSeatSelection(seat, "REMOVE");
+          }
+        }
+      );
     }
   };
   renderSeatUnit() {
@@ -60,8 +73,9 @@ class SeatUnit extends React.Component {
     const facilities = getFacilites(seatDetails);
     const totalAmount = getTotalAmount(seatDetails);
     const currencyCode = getCurrencyCode(seatDetails);
+    const seat = `${this.props.rowNumber} ${seatNumber}`;
     const seatDetailsForToolTip = {
-      seat: `${this.props.rowNumber} ${seatNumber}`,
+      seat,
       seatClass: this.props.cabinClass,
       occupation,
       location,
@@ -78,7 +92,7 @@ class SeatUnit extends React.Component {
             style={style}
             onClick={() => {
               if (occupation === "SeatIsFree") {
-                this.onClick();
+                this.onClick(seat);
               }
             }}
           >

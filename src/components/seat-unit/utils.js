@@ -76,7 +76,7 @@ export function getSeatOccupationClassName(seatOccupation) {
     case "SeatIsOccupied":
       return "seat-is-occupied";
     default:
-      return "";
+      return "seat-is-unavailable";
   }
 }
 
