@@ -1,6 +1,17 @@
 import React from "react";
 import "./style.css";
 import SeatUnit from "../seat-unit";
+import { getOccupation, getSeatOccupationClassName } from "../seat-unit/utils";
+
+const checkShouldDisableSelection = seatDetails => {
+  const seatOccupation = getOccupation(seatDetails);
+  const seatClassName = getSeatOccupationClassName(seatOccupation);
+  if (seatClassName === "seat-is-free") {
+    return false;
+  } else {
+    return true;
+  }
+};
 
 const RowContainer = ({
   seat,
@@ -14,6 +25,7 @@ const RowContainer = ({
   <div className="row-container">
     {seat.map((seatDetails, index) => (
       <SeatUnit
+        shouldDisableSelection={checkShouldDisableSelection(seatDetails)}
         seat={`${rowNumber} ${seatDetails.Number[0]}`}
         seatBooking={seatBooking}
         updateSeatSelection={updateSeatSelection}
@@ -63,9 +75,9 @@ const SeatMapComponent = ({
   seatMap
 }) => {
   return (
-    <div>
-      <div className="seat-map-height-container">
-        <div className="seat-map-horizontal-container">
+    <div className="padding-vertical--1-6 --bg-f2f2f2">
+      <div className="seat-map-height-container --bg-f2f2f2">
+        <div className="seat-map-horizontal-container ">
           <CabinContainer
             seatBooking={seatBooking}
             seatMap={seatMap}

@@ -1,11 +1,11 @@
 .seat-map-app {
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
 }
 
 .seat-map-select__widget-wrapper {
   padding-top: 1rem;
-  margin-top: 1.6rem;
   border-top: 1px solid lightgrey;
+  padding-bottom: 1.6rem;
 }
 
 .seat-map-select__widget {
@@ -19,20 +19,38 @@
 
 .seat-map-select__row {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 
 .seat-map-select-unit .passenger-name {
   padding-left: 0.6rem;
-  max-width: 150px;
+  max-width: 220px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   display: inline-block;
+  font-size: 1.3rem;
 }
 
 .seat-map-select-unit .selected-seat__input {
   padding: 0.3rem;
   border-radius: 2px;
   border: 1px solid #ccc;
+  outline: none;
+  font-size: 1.3rem;
+}
+
+.seat-map-select-unit.--is-selected {
+  color: #1554b0;
+  font-weight: bold;
+}
+
+.seat-map-select-unit.--is-selected input {
+  color: #1554b0;
+  font-weight: bold;
+}
+
+.passenger-radio-and-name-group {
+  display: flex;
+  align-items: center;
 }

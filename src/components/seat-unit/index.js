@@ -16,37 +16,30 @@ import {
 
 class SeatUnit extends React.Component {
   state = {
-    disbleToolTop: false,
-    disableSelection: false,
-    isSelected: false,
-    id: ""
+    disbleToolTop: false
   };
   onClick = seat => {
-    const { selectedPassenger, seatBooking } = this.props;
-    const otherPassengerSeats = seatBooking.filter(
-      seat => seat.id !== selectedPassenger.id
-    );
-    const allOtherSeatBookings = otherPassengerSeats.reduce((acc, item) => {
-      return [...acc, ...item.seats];
-    }, []);
-    // if seat is already selected by other passenger then return
-    if (allOtherSeatBookings.indexOf(seat) > -1) {
+    if (this.props.shouldDisableSelection) {
       return;
     }
 
-    if (!this.state.disableSelection) {
-      this.setState(
-        {
-          isSelected: !this.state.isSelected
-        },
-        () => {
-          if (this.state.isSelected) {
-            this.props.updateSeatSelection(seat, "ADD");
-          } else {
-            this.props.updateSeatSelection(seat, "REMOVE");
-          }
-        }
-      );
+    const { selectedPassenger, seatBooking } = this.props;
+    const otherPassengerSeatBookings = seatBooking.filter(
+      seat => seat.id !== selectedPassenger.id
+    );
+    const allOtherSeats = otherPassengerSeatBookings.reduce((acc, item) => {
+      return [...acc, ...item.seats];
+    }, []);
+    // if seat is already selected by other passenger then return
+    if (allOtherSeats.indexOf(seat) > -1) {
+      return;
+    }
+
+    const isSelected = this.checkIfSelected();
+    if (!isSelected) {
+      this.props.updateSeatSelection(seat, "ADD");
+    } else {
+      this.props.updateSeatSelection(seat, "REMOVE");
     }
   };
   renderSeatUnit() {
@@ -56,8 +49,19 @@ class SeatUnit extends React.Component {
       return <EconomySeatUnitSvg />;
     }
   }
+  checkIfSelected() {
+    const { seatBooking, seat } = this.props;
+    const allSeatBookings = seatBooking.reduce((acc, item) => {
+      return [...acc, ...item.seats];
+    }, []);
+    if (allSeatBookings.indexOf(seat) > -1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
   render() {
-    const { top, left, seatDetails, columns } = this.props;
+    const { top, left, seatDetails, columns, seat } = this.props;
     let deriveWidth = this.props.cabinClass === "Business" ? "22px" : "17px";
 
     const seatNumber = seatDetails.Number[0];
@@ -71,7 +75,8 @@ class SeatUnit extends React.Component {
       height: "22px",
       ...derivedSeatStyle
     };
-    let deriveClassName = this.state.isSelected ? "is-selected" : "";
+    const isSelected = this.checkIfSelected();
+    let deriveClassName = isSelected ? "is-selected" : "";
     /********************************************/
     // seat unit details
     /********************************************/
@@ -81,7 +86,6 @@ class SeatUnit extends React.Component {
     const facilities = getFacilites(seatDetails);
     const totalAmount = getTotalAmount(seatDetails);
     const currencyCode = getCurrencyCode(seatDetails);
-    const seat = `${this.props.rowNumber} ${seatNumber}`;
     const seatDetailsForToolTip = {
       seat,
       seatClass: this.props.cabinClass,

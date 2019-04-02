@@ -9,12 +9,17 @@
   /* width: 172px; */
   width: 196px;
   margin: 0 auto;
-  border: 1px dashed orange;
+  border: 1px dashed #c3c3c3;
+  background: white;
 }
 
 .cabin-class-title {
   text-align: center;
   padding: 0.6rem;
+}
+
+.padding-vertical--1-6 {
+  padding: 1.6rem 0;
 }
 
 .seat-map-horizontal-container {
@@ -24,4 +29,8 @@
 .seat-map-height-container {
   height: 200px;
   overflow: hidden;
+}
+
+.--bg-f2f2f2 {
+  background: #f2f2f2;
 }

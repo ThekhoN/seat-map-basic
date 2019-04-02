@@ -111,6 +111,14 @@ class App extends React.Component {
     }
   }
   render() {
+    const getIsSelectedClass = passengerId => {
+      if (this.state.selectedPassenger.id === passengerId) {
+        return "--is-selected";
+      } else {
+        return "";
+      }
+    };
+
     return (
       <div className="seat-map-app">
         <SeatMapComponent
@@ -129,9 +137,11 @@ class App extends React.Component {
             {passengers.map((passenger, i) => (
               <label
                 key={passenger.id}
-                className="seat-map-select-unit seat-map-select__row"
+                className={`seat-map-select-unit seat-map-select__row ${getIsSelectedClass(
+                  passenger.id
+                )}`}
               >
-                <span>
+                <span className="passenger-radio-and-name-group">
                   <input
                     name="passenger"
                     type="radio"
