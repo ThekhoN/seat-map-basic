@@ -14,13 +14,15 @@
 }
 
 .seat-unit:hover svg.seat-icon {
-  fill: #f2f2f2;
-  stroke: #333;
+  fill: #1b6dce;
+  stroke: #ffffff;
+  stroke-width: 4;
 }
 
 .seat-unit.is-selected svg.seat-icon {
   fill: #1554b0;
   stroke: #ffffff;
+  stroke-width: 2;
 }
 
 .seat-unit__tool-tip {
@@ -32,13 +34,25 @@
 }
 
 .seat-is-occupied svg {
-  fill: #889cb5;
+  fill: #9aaabf;
   stroke: #ffffff;
 }
 
 .seat-unit.seat-is-occupied:hover svg {
-  fill: #889cb5;
+  fill: #9aaabf;
   stroke: #ffffff;
+  stroke-width: 2;
+}
+
+.seat-is-unavailable svg {
+  fill: #a5a5a5;
+  stroke: #ffffff;
+}
+
+.seat-unit.seat-is-unavailable:hover svg {
+  fill: #a5a5a5;
+  stroke: #ffffff;
+  stroke-width: 2;
 }
 
 .react-tooltip-lite {
@@ -48,14 +62,4 @@
 
 .react-tooltip-lite-arrow {
   border-color: #333;
-}
-
-.seat-is-unavailable svg {
-  fill: #8c8c8c;
-  stroke: #ffffff;
-}
-
-.seat-unit.seat-is-unavailable:hover svg {
-  fill: #8c8c8c;
-  stroke: #ffffff;
 }

@@ -40,10 +40,10 @@ export const SeatUnitSvg = ({
 export default SeatUnitSvg;
 
 SeatUnitSvg.defaultProps = {
-  title: "seat icon",
+  title: "",
   width: "17px",
   height: "21px",
-  strokeColor: "#000000",
+  strokeColor: "#001d3f",
   fillColor: "#ffffff",
   handleOnClick: () => {}
 };

@@ -7,10 +7,11 @@
 
 .cabin-container {
   /* width: 172px; */
-  width: 196px;
+  width: 326px;
   margin: 0 auto;
-  border: 1px dashed #c3c3c3;
+  border: 1px dashed #969696;
   background: white;
+  padding-bottom: 4px;
 }
 
 .cabin-class-title {
@@ -23,11 +24,11 @@
 }
 
 .seat-map-horizontal-container {
-  transform: rotate(90deg) translateX(-216px);
+  transform: rotate(90deg) translateX(-234px);
 }
 
 .seat-map-height-container {
-  height: 200px;
+  height: 361px;
   overflow: hidden;
 }
 

@@ -92,7 +92,7 @@ export function deriveSeatStyle(seatNumber, columns) {
 
   if (
     matchinColumn.Characteristics[0] === "Aisle" &&
-    columns[matchingColumnIndex + 1].Characteristics[0] !== "Aisle"
+    columns[matchingColumnIndex + 1].Characteristics[0] === "Aisle"
   ) {
     style = {
       marginRight: "10px"

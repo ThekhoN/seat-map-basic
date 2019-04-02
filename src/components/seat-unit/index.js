@@ -62,7 +62,9 @@ class SeatUnit extends React.Component {
   }
   render() {
     const { top, left, seatDetails, columns, seat } = this.props;
-    let deriveWidth = this.props.cabinClass === "Business" ? "22px" : "17px";
+    // 22 : 17
+
+    let deriveWidth = this.props.cabinClass === "Business" ? "38px" : "30px";
 
     const seatNumber = seatDetails.Number[0];
 
@@ -72,7 +74,7 @@ class SeatUnit extends React.Component {
       top: top ? top + "px" : 0 + "px",
       left: left ? left + "px" : 0 + "px",
       width: deriveWidth,
-      height: "22px",
+      height: "30px",
       ...derivedSeatStyle
     };
     const isSelected = this.checkIfSelected();
