@@ -12,3 +12,27 @@
   max-width: 640px;
   margin: 0 auto;
 }
+
+.seat-map-select-unit {
+  margin-bottom: 0.6rem;
+}
+
+.seat-map-select__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.seat-map-select-unit .passenger-name {
+  padding-left: 0.6rem;
+  max-width: 150px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.seat-map-select-unit .selected-seat__input {
+  padding: 0.3rem;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+}

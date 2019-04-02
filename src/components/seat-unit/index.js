@@ -22,6 +22,18 @@ class SeatUnit extends React.Component {
     id: ""
   };
   onClick = seat => {
+    const { selectedPassenger, seatBooking } = this.props;
+    const otherPassengerSeats = seatBooking.filter(
+      seat => seat.id !== selectedPassenger.id
+    );
+    const allOtherSeatBookings = otherPassengerSeats.reduce((acc, item) => {
+      return [...acc, ...item.seats];
+    }, []);
+    // if seat is already selected by other passenger then return
+    if (allOtherSeatBookings.indexOf(seat) > -1) {
+      return;
+    }
+
     if (!this.state.disableSelection) {
       this.setState(
         {
@@ -30,10 +42,6 @@ class SeatUnit extends React.Component {
         () => {
           if (this.state.isSelected) {
             this.props.updateSeatSelection(seat, "ADD");
-            const message = `seat ${seat} was selected for passenger id: ${
-              this.props.selectedPassenger.id
-            } and name: ${this.props.selectedPassenger.name}`;
-            console.log(message);
           } else {
             this.props.updateSeatSelection(seat, "REMOVE");
           }
