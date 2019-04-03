@@ -1,5 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .seat-map-app {
-  /* margin-top: 1rem; */
+  font-family: sans-serif;
 }
 
 .seat-map-select__widget-wrapper {

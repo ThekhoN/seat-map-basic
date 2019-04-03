@@ -24,7 +24,7 @@
 }
 
 .seat-map-horizontal-container {
-  transform: rotate(90deg) translateX(-234px);
+  transform: rotate(270deg) translateX(234px);
 }
 
 .seat-map-height-container {

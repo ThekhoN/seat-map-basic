@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import "./seat-styles.css";
+// import "./seat-styles.css";
 import SeatMapComponent from "./components/seat-map-component";
 import get from "lodash.get";
 import { response } from "./Fixtures/response";
@@ -43,7 +43,7 @@ const getInitialBooking = passengers => {
 
 class App extends React.Component {
   state = {
-    seatLimit: 5,
+    seatLimit: 1,
     selectedPassenger: passengers[0],
     seatBooking: getInitialBooking(passengers)
   };
@@ -64,7 +64,7 @@ class App extends React.Component {
     }
 
     if (updatedSelectedPassengerSeats.length > this.state.seatLimit) {
-      alert(`Limit of ${this.state.seatLimit} seat per passenger exceeded!`);
+      // alert(`Limit of ${this.state.seatLimit} seat per passenger exceeded!`);
       return;
     } else {
       const updatedSeatBooking = [
